@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en" ng-app="smallTaxApp">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Small Tax</title>
+  <link rel="stylesheet" type="text/css" href="css/main.css" />
+  <script src="libs/libraries.js"></script>
+</head>
+<body ng-controller='MainCtrl as vm'>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <h1 class="page-header">Small Tax Application</h1>
+        <div class="well">
+          <form class="form" role="form">
+            <div class="form-group">
+              <div class="input-group">
+                <span class="input-group-addon" id="basic-addon">Name</span>
+                <input type="text" class="form-control" ng-model="vm.options.name" placeholder="Enter name here...">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="input-group">
+                <span class="input-group-addon" id="basic-addon-2">Age</span>
+                <input type="text" class="form-control" ng-model="vm.options.age" placeholder="Enter age here..." aria-describedby="basic-addon-2">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="input-group">
+                <span class="input-group-addon" id="basic-addon-1">Salary</span>
+                <input type="text" class="form-control" ng-model="vm.options.salary" placeholder="Enter salary here..." aria-describedby="basic-addon-1">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="input-group">
+                <div class="btn-group-sm">
+                  <button class="btn btn-success" ng-click="vm.calculate()">Calculate</button>
+                  <button class="btn btn-warning" ng-click="vm.clearAll()">Clear All</button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12">
+          <div class="well" ng-if="vm.options.tax !== 0">
+            <table class="table">
+              <tr>
+                <th>Name</th><td>{{vm.options.name}}</td>
+              </tr>
+              <tr>
+                <th>Age</th><td>{{vm.options.age}}</td>
+              </tr>
+              <tr>
+                <th>Salary</th><td>{{vm.options.salary}}</td>
+              </tr>
+              <tr>
+                <th>Tax Payable</th><td>{{vm.options.tax | number:2}}</td>
+              </tr>
+              <tr>
+                <th>Age Based Relief</th><td>{{vm.options.relief}}</td>
+              </tr>
+              <!--tr>
+                <th>Final Amout</th><td>{{vm.options.amout}}</td>
+              </tr-->
+            </table>
+          </div>
+      </div>
+    </div>
+  </div>
+  <script src="js/bundle.js"></script>
+</body>
+</html>
